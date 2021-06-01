@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>Characters</h1>
+  <ul class="list-group" style="list-style-type: none">
+    <li *ngFor="let character of characters">
+      <a
+        class="
+          list-group-item list-group-item-action
+          animate_animated animate_bounce animate__fadeIn
+        "
+        [routerLink]="['/character', character.id]"
+        >{{ character.id }} - {{ character.name }}</a
+      >
+    </li>
+  </ul>
+</div>

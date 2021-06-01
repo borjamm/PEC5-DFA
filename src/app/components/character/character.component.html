@@ -1,0 +1,39 @@
+<div class="container mt-5">
+  <div
+    *ngIf="character"
+    class="row animate__animated animate__bounce animate__fadeIn"
+  >
+    <div class="col-md-9">
+      <p><strong>Identifier:</strong> {{ character.id }}</p>
+      <p><strong>Name:</strong> {{ character.name }}</p>
+      <p><strong>Status:</strong> {{ character.status }}</p>
+      <p><strong>Gender:</strong> {{ character.gender }}</p>
+      <p><strong>Origin:</strong> {{ character.origin }}</p>
+      <p><strong>Hair:</strong> {{ character.hair }}</p>
+      <div *ngIf="character?.alias && character.alias.length !== 0">
+        <p><strong>Alias:</strong></p>
+        <ul>
+          <li *ngFor="let alias of character.alias">{{ alias }}</li>
+        </ul>
+      </div>
+      <div *ngIf="character?.abilities && character.abilities.length !== 0">
+        <p><strong>Abilities:</strong></p>
+        <ul>
+          <li *ngFor="let ability of character.abilities">{{ ability }}</li>
+        </ul>
+      </div>
+
+      <!-- <p><strong>Url image:</strong> {{ character.img_url }}</p> -->
+      <img
+        style="width: 300px; height: 300px; object-fit: cover"
+        class="rounded"
+        src="{{ character.img_url }}"
+        alt=""
+      />
+    </div>
+
+    <div class="col-md-3 my-3 my-md-0">
+      <a class="btn btn-danger" routerLink="/">Back</a>
+    </div>
+  </div>
+</div>
